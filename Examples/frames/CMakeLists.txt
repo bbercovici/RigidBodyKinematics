@@ -2,7 +2,7 @@
 # @file   CMakeLists.txt
 # @Author Benjamin Bercovici (bebe0705@colorado.edu)
 # @date   July, 2017
-# @brief  CMake listing enabling compilation and installation of the dcm_transform example
+# @brief  CMake listing enabling compilation and installation of the frames example
 # 
 cmake_minimum_required(VERSION 3.7)
 

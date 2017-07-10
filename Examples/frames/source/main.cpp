@@ -2,7 +2,7 @@
 @file   main.cpp
 @Author Benjamin Bercovici (bebe0705@colorado.edu)
 @date   July, 2017
-@brief  main.cpp Implementation of the dcm_transform example
+@brief  main.cpp Implementation of the frames example
 */
 
 #include <RigidBodyKinematics.hpp>
@@ -12,22 +12,27 @@
 
 int main() {
 
-	// Transforming a set of 3-1-3 euler angles into a Direction Cosine Matrix
-	arma::vec angles_313 = {0.1, 0.2, 0.3};
-	arma::mat dcm = RBK::euler313_to_dcm(angles_313);
+	// This example features 2 frames: an inertial frame of reference "N" and a body frame "B"
 
-	// Converting the angles to degrees and recomputing the dcm
-	arma::vec angles_313_deg = 180 / arma::datum::pi * angles_313;
-	arma::mat dcm_deg = RBK::euler313d_to_dcm(angles_313_deg);
+	// Orienting B with respect to N means
+	double yaw = 0.1;
+	double pitch = 0.1;
+	double roll = 0.1;
 
-	// Ensuring that the two are the same
-	std::cout << " Are the DCMs equal? " << std::endl;
-	if (arma::approx_equal(dcm, dcm_deg, "absdiff", 1e-6)) {
-		std::cout << " Yes "  << std::endl;
-	}
-	else {
-		std::cout << " No "  << std::endl;
-	}
+	arma::vec angles_321 = {yaw, pitch, roll};
+	arma::mat dcm_BN = RBK::euler321_to_dcm(angles_321);
+
+	// The position of B's origin is also expressed in N
+	arma::vec origin_B_in_N = {150, 20, 40};
+
+	// Some vector, for instance representative of a position in the inertial frame
+	arma::vec pos_N = {150, 120, 20};
+
+	// This vector is expressed in the B frame
+	arma::vec pos_B = dcm_BN * (pos_N - origin_B_in_N);
+
+	
+
 
 	return 0;
 
