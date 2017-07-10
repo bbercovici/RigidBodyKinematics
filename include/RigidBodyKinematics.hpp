@@ -71,7 +71,7 @@ arma::vec euler321_to_mrp(const arma::vec & euler_angles);
 
 /**
 Computes the time derivative of the attitude set
-assuming torque free rotational dynamics
+assuming torque free rotational dynamics and MRP as attitude coordinate
 @param t Current time
 @param attitude_set mrp + angular velocities
 @param inertia Inertia matrix
@@ -83,6 +83,7 @@ arma::vec dXattitudedt(double t, arma::vec attitude_set, arma::mat inertia) ;
 
 /**
 Computes the time derivative of the angular velocity set
+assuming torque-free rotation
 @param t Current time
 @param attitude_set mrp + angular velocities
 @param inertia Inertia matrix
