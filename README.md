@@ -14,7 +14,7 @@ Implementation of a handful of useful rigid body kinematics routines relying on 
 4. `make install`
 
 ## Usage:
-1. Assuming that you are using CMake to build your project, add the following: 
+1. Assuming that you are using CMake to build your project, add the following to your main CMakeLists.txt (see Examples/): 
 
 ```
 find_package(RigidBodyKinematics REQUIRED)
