@@ -36,8 +36,12 @@ target_link_libraries(${EXE_NAME} ${library_dependencies})
 2. Add `#include <RigidBodyKinematics.hpp>` to your includes
 3. Look at Examples/ for more insight into using RBK!
 
-
-
+## Getting updates
+Assuming you cloned this repository and did not apply any local changes to the library, cd to the corresponding folder
+and type
+1. `git pull`
+2. `make`
+3. `make install`
 
 
 
