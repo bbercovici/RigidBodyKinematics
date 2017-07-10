@@ -10,9 +10,26 @@ Installation:
 
 Usage:
 1. Assuming that you are using CMake to build your project, add the following: 
-`find_package(RigidBodyKinematics REQUIRED)`
-`include_directories(${RBK_INCLUDE_DIRS})`
-2. Add `#include <RigidBodyKinematics.hpp>` to your include lists 
+
+```
+find_package(RigidBodyKinematics REQUIRED)
+include_directories(${RBK_INCLUDE_DIRS})
+
+...
+...
+...
+
+# Linking against Armadillo, Boost and RigidBodyKinematics.
+set(library_dependencies
+${ARMADILLO_LIBRARIES}
+${Boost_LIBRARIES}
+${RBK_LIBRARY})
+
+target_link_libraries(${EXE_NAME} ${library_dependencies})
+
+```
+2. Add `#include <RigidBodyKinematics.hpp>` to your includes
+3. Look at Examples/ for more insight into using RBK!
 
 
 
