@@ -1,5 +1,5 @@
 # RigidBodyKinematics
-Implementation of a handful of useful rigid body kinematics routines relying on Armadillo (Required). CMake is also required.
+Implementation of a handful of useful rigid body kinematics routines relying on Armadillo.
 
 ## Requires
 1. Armadillo
