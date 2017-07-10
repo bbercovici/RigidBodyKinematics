@@ -1,14 +1,19 @@
 # RigidBodyKinematics
 Implementation of a handful of useful rigid body kinematics routines relying on Armadillo (Required). CMake is also required.
 
-Installation: 
+#Requires
+1. Armadillo
+2. CMake
+
+
+#Installation: 
 
 1. Clone or download this repository 
 2. Edit the install location (set by default to `/usr/local/lib`) in CMakeLists.txt if need be.
 3. `make`
 4. `make install`
 
-Usage:
+#Usage:
 1. Assuming that you are using CMake to build your project, add the following: 
 
 ```
