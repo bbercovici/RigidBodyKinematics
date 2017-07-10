@@ -11,9 +11,6 @@ set(EXE_NAME ${dirName} CACHE STRING "Name of executable to be created.")
 
 project(${EXE_NAME})
 
-# cmake_minimum_required(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.0)
-# set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/source/cmake)
-
 # Compiler flags
 add_definitions(-Wall -O2 )
 set(CMAKE_CXX_FLAGS "-std=c++11")
@@ -28,7 +25,6 @@ include_directories(${ARMADILLO_INCLUDE_DIRS})
 # Find RBK 
 find_package(RigidBodyKinematics REQUIRED)
 include_directories(${RBK_INCLUDE_DIRS})
-
 
 # Add source files in root directory
 add_executable(${EXE_NAME}
