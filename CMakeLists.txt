@@ -1,9 +1,8 @@
+# @file   CMakeLists.txt
+# @Author Benjamin Bercovici (bebe0705@colorado.edu)
+# @date   July, 2017
+# @brief  CMake listing enabling compilation and installation of the RBK library
 
- # @file   CMakeLists.txt
- # @Author Benjamin Bercovici (bebe0705@colorado.edu)
- # @date   July, 2017
- # @brief  CMake listing enabling compilation and installation of the RBK library
- # 
  
 
 cmake_minimum_required(VERSION 2.8)
