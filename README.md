@@ -9,9 +9,8 @@ Shared library implementation of a handful of useful rigid body kinematics routi
 ## Installation: 
 
 1. Clone or download this repository 
-2. If need be, edit the install location (set by default to `/usr/local/`) in CMakeLists.txt. The new location has to be part of your $PATH variable.
-3. `make`
-4. `make install`
+2. `make`
+3. `make install`
 
 ## Usage:
 1. Assuming that you are using CMake to build your project, add the following to your main CMakeLists.txt (see Examples/): 
