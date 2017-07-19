@@ -4,7 +4,7 @@ set(RBK_LIBRARY /usr/local/lib/libRigidBodyKinematics.dylib)
 
 if (APPLE)
 	set(RBK_LIBRARY /usr/local/lib/libRigidBodyKinematics.dylib)
-elseif(UNIT AND NOT APPLE)
+elseif(UNIX AND NOT APPLE)
 	set(RBK_LIBRARY /usr/local/lib/libRigidBodyKinematics.so)
 else()
 	message(FATAL_ERROR "Unsupported platform")
