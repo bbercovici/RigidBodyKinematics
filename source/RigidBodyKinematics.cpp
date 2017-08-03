@@ -126,8 +126,8 @@ arma::vec RBK::dXattitudedt(double t, arma::vec attitude_set, arma::mat inertia)
 }
 
 
-arma::vec RBK::shadow_mrp(arma::vec mrp) {
-	if (arma::norm(mrp) > 1) {
+arma::vec RBK::shadow_mrp(const arma::vec & mrp, bool force_switch) {
+	if (arma::norm(mrp) > 1 || force_switch == true) {
 		return - mrp / arma::dot(mrp, mrp);
 	}
 	else {

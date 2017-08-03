@@ -107,10 +107,12 @@ arma::vec dmrpdt(double t, arma::vec attitude_set );
 /**
 Returns the shadow set of the input mrp if crossing
 surface is reached
-@param mrp Mrp
+@param mrp MRP set
+@param force_switch if True, will force the switching of the MRP to its shadow without checking its norm
 @return mrp or its shadow set
+
 */
-arma::vec shadow_mrp(arma::vec mrp) ;
+arma::vec shadow_mrp(const arma::vec & mrp, bool force_switch = false) ;
 
 
 /**

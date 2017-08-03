@@ -4,7 +4,6 @@
 # @brief  CMake listing enabling compilation and installation of the RBK library
 
  
-
 cmake_minimum_required(VERSION 2.8)
 
 get_filename_component(dirName ${CMAKE_CURRENT_SOURCE_DIR} NAME)
@@ -18,7 +17,6 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/source/cmake)
 add_definitions(-Wall -O2 )
 message(${CMAKE_MODULE_PATH})
 find_package(Armadillo REQUIRED)
-
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_library(${LIB_NAME} SHARED source/RigidBodyKinematics.cpp)
