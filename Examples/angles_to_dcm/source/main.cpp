@@ -5,7 +5,7 @@
 @brief  main.cpp Implementation of the dcm_transform example
 */
 
-#include <RigidBodyKinematics.hpp>
+#include "RigidBodyKinematics.hpp"
 #include <armadillo>
 #include <iostream>
 
