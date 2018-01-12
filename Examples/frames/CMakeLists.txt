@@ -4,7 +4,7 @@
 # @date   July, 2017
 # @brief  CMake listing enabling compilation and installation of the frames example
 # 
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.5)
 
 get_filename_component(dirName ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 set(EXE_NAME ${dirName} CACHE STRING "Name of executable to be created.")
