@@ -12,7 +12,6 @@ else()
 	set(IS_FORTUNA OFF)
 endif()
 
-
 get_filename_component(dirName ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 set(EXE_NAME ${dirName} CACHE STRING "Name of executable to be created.")
 
@@ -31,7 +30,7 @@ include_directories(${ARMADILLO_INCLUDE_DIRS})
 
 # Find RBK 
 find_package(RigidBodyKinematics REQUIRED PATHS ${RBK_LOC})
-include_directories(${RBK_INCLUDE_DIRS})
+include_directories(${RBK_INCLUDE_DIR})
 
 
 # Add source files in root directory
