@@ -8,6 +8,7 @@ cmake_minimum_required(VERSION 2.8)
 
 if (EXISTS ~/.am_fortuna)
 	set(IS_FORTUNA ON)
+	message("-- This is Fortuna")
 else()
 	set(IS_FORTUNA OFF)
 endif()
