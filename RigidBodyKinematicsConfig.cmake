@@ -1,5 +1,5 @@
 
-if (EXISTS ~/.am_fortuna)
+if (EXISTS /home/bebe0705/.am_fortuna)
 	set(IS_FORTUNA ON)
 	message("-- This is Fortuna")
 
