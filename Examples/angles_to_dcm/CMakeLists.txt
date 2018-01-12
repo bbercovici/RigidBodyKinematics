@@ -32,7 +32,10 @@ include_directories(${ARMADILLO_INCLUDE_DIRS})
 
 # Find RBK 
 find_package(RigidBodyKinematics REQUIRED PATHS ${RBK_LOC})
-include_directories(${RBK_INCLUDE_DIRS})
+include_directories(${RBK_INCLUDE_HEADER})
+
+
+message("RBK at: ${RBK_INCLUDE_HEADER}")
 
 # Add source files in root directory
 add_executable(${EXE_NAME}
