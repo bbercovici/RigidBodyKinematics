@@ -6,7 +6,7 @@
  
 cmake_minimum_required(VERSION 2.8)
 
-if (EXISTS /home/bebe0705/.am_fortuna)
+if (EXISTS ~/.am_fortuna)
 	set(IS_FORTUNA ON)
 	message("-- This is Fortuna")
 else()
