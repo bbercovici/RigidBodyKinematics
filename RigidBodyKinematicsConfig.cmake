@@ -9,10 +9,10 @@ endif()
 
 
 if (${IS_FORTUNA})
-	set(RBK_INCLUDE_HEADER /home/bebe0705/libs/local/include/RigidBodyKinematics.hpp)
+	set(RBK_INCLUDE_DIR /home/bebe0705/libs/local/include/RigidBodyKinematics/RigidBodyKinematics.hpp)
 	set(RBK_LIBRARY /home/bebe0705/libs/local/lib/libRigidBodyKinematics.so)
 else()
-	set(RBK_INCLUDE_HEADER /usr/local/include/RigidBodyKinematics.hpp)
+	set(RBK_INCLUDE_DIR /usr/local/include/RigidBodyKinematics/RigidBodyKinematics.hpp)
 
 	if (APPLE)
 		set(RBK_LIBRARY /usr/local/lib/libRigidBodyKinematics.dylib)
