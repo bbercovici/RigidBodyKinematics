@@ -5,13 +5,12 @@
  * @date   July, 2017
  * @brief  Header of the RigidBodyKinematics libary
  *
- * Rigid Body Kinematics library implementating a handful of useful routines
+ * Rigid Body Kinematics library implementating a handful of useful rigid body routines
  */
 
 
 #ifndef RIGIDBODYKINEMATICS_HPP
 #define RIGIDBODYKINEMATICS_HPP
-
 
 
 #include <armadillo>
