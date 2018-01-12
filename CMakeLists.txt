@@ -11,6 +11,8 @@ if (EXISTS ~/.am_fortuna)
 	message("-- This is Fortuna")
 else()
 	set(IS_FORTUNA OFF)
+	message("-- This is not Fortuna")
+
 endif()
 
 get_filename_component(dirName ${CMAKE_CURRENT_SOURCE_DIR} NAME)
