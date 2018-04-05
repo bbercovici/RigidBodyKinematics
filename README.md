@@ -1,4 +1,5 @@
 # RigidBodyKinematics
+
 Shared library implementation of a handful of useful rigid body kinematics routines relying on Armadillo.
 
 ## Requires
@@ -42,6 +43,10 @@ and type
 2. `make`
 3. `make install`
 
+
+## License
+
+[This software is distributed under the MIT License](https://choosealicense.com/licenses/mit/)
 
 
 
