@@ -26,7 +26,6 @@ SOFTWARE.
 #include "RigidBodyKinematics.hpp"
 #include <math.h>
 
-
 arma::mat RBK::mrp_to_dcm(const arma::vec & sigma) {
 	arma::mat identity(3, 3);
 	identity = identity.eye();
