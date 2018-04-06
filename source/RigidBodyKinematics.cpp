@@ -66,9 +66,8 @@ arma::mat RBK::euler313d_to_dcm(arma::vec & euler_angles) {
 }
 
 arma::vec RBK::mrp_to_quat(const arma::vec & mrp) {
-	return RBK::mrp_to_dcm(RBK::dcm_to_quat(mrp));
+	return RBK::dcm_to_quat(RBK::mrp_to_dcm(mrp));
 }
-
 
 arma::mat RBK::tilde(const arma::vec & x) {
 	arma::mat vec_tilde = {
