@@ -321,7 +321,6 @@ Converts a PRV to a well-behaved MRP set
 */
 
 arma::vec prv_to_mrp(const arma::vec & prv);
-}
 
 /**
 Returns the B matrix in the evaluation of the MRP's time derivative (sigma_dot = 1/4 * Bmat(sigma) * omega)
@@ -330,6 +329,7 @@ Returns the B matrix in the evaluation of the MRP's time derivative (sigma_dot =
 */
 arma::mat Bmat(const arma::vec & mrp);
 
+}
 
 
 #endif
