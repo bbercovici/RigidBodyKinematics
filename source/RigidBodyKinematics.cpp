@@ -26,7 +26,6 @@ SOFTWARE.
 #include "RigidBodyKinematics.hpp"
 #include <math.h>
 
-
 arma::mat RBK::mrp_to_dcm(const arma::vec & sigma) {
 	arma::mat identity(3, 3);
 	identity = identity.eye();
@@ -66,9 +65,8 @@ arma::mat RBK::euler313d_to_dcm(arma::vec & euler_angles) {
 }
 
 arma::vec RBK::mrp_to_quat(const arma::vec & mrp) {
-	return RBK::mrp_to_dcm(RBK::dcm_to_quat(mrp));
+	return RBK::dcm_to_quat(RBK::mrp_to_dcm(mrp));
 }
-
 
 arma::mat RBK::tilde(const arma::vec & x) {
 	arma::mat vec_tilde = {
@@ -128,7 +126,13 @@ arma::vec RBK::dmrpdt(double t, arma::vec attitude_set ) {
 	arma::vec omega = attitude_set.rows(3, 5);
 	arma::mat I = arma::eye<arma::mat>(3, 3);
 
-	return 0.25 * ( (1 - arma::dot(mrp, mrp)) * I + 2 * tilde(mrp) + 2 * mrp * mrp.t()) * omega;
+	return 0.25 *  Bmat(mrp) * omega;
+}
+
+arma::mat RBK::Bmat(const arma::vec & mrp){
+	arma::mat I = arma::eye<arma::mat>(3, 3);
+	
+	return ( (1 - arma::dot(mrp, mrp)) * I + 2 * tilde(mrp) + 2 * mrp * mrp.t() );
 }
 
 arma::vec RBK::domegadt(double t, arma::vec attitude_set, arma::mat & inertia) {
