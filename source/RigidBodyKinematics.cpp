@@ -126,7 +126,13 @@ arma::vec RBK::dmrpdt(double t, arma::vec attitude_set ) {
 	arma::vec omega = attitude_set.rows(3, 5);
 	arma::mat I = arma::eye<arma::mat>(3, 3);
 
-	return 0.25 * ( (1 - arma::dot(mrp, mrp)) * I + 2 * tilde(mrp) + 2 * mrp * mrp.t()) * omega;
+	return 0.25 *  Bmat(mrp) * omega;
+}
+
+arma::mat RBK::Bmat(const arma::vec & mrp){
+	arma::mat I = arma::eye<arma::mat>(3, 3);
+	
+	return ( (1 - arma::dot(mrp, mrp)) * I + 2 * tilde(mrp) + 2 * mrp * mrp.t() );
 }
 
 arma::vec RBK::domegadt(double t, arma::vec attitude_set, arma::mat & inertia) {
