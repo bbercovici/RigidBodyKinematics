@@ -55,10 +55,13 @@ def dcm_to_prv(dcm):
     '''
 
     cos_phi = 0.5 * (np.trace(dcm) - 1)
-    sin_phi = np.sqrt(1 - cos_phi ** 2)
-    e_dir = 1./(2 * sin_phi) * np.array([dcm[1,2] - dcm[2,1],dcm[2,0] - dcm[0,2],dcm[0,1] - dcm[1,0]])
+    if (cos_phi - 1 > 0):
+        sin_phi = np.sqrt(1 - cos_phi ** 2)
+        e_dir = 1./(2 * sin_phi) * np.array([dcm[1,2] - dcm[2,1],dcm[2,0] - dcm[0,2],dcm[0,1] - dcm[1,0]])
 
-    return np.arccos(cos_phi) * e_dir
+        return np.arccos(cos_phi) * e_dir
+    else:
+        return np.zeros(3)
 
 
 

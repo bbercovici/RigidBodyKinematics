@@ -31,7 +31,7 @@ arma::mat RBK::mrp_to_dcm(const arma::vec & sigma) {
 	identity = identity.eye();
 
 	arma::mat dcm = identity + (8 * tilde(sigma) * (tilde(sigma))
-	                            - 4 * (1 - pow(arma::norm(sigma), 2)) * tilde(sigma)) / pow(1 + pow(arma::norm(sigma), 2), 2);
+		- 4 * (1 - pow(arma::norm(sigma), 2)) * tilde(sigma)) / pow(1 + pow(arma::norm(sigma), 2), 2);
 	return dcm;
 }
 
@@ -202,26 +202,26 @@ arma::vec RBK::dcm_to_quat(const arma::mat & dcm) {
 	Q(max_coef_index) = std::sqrt(q_s.max());
 
 	switch (max_coef_index) {
-	case 0:
+		case 0:
 		Q(1) = 1. / 4. * (dcm(1, 2) - dcm(2, 1)) / Q(0);
 		Q(2) = 1. / 4. * (dcm(2, 0) - dcm(0, 2)) / Q(0);
 		Q(3) = 1. / 4. * (dcm(0, 1) - dcm(1, 0)) / Q(0);
 		break;
 
-	case 1:
+		case 1:
 		Q(0) = 1. / 4. * (dcm(1, 2) - dcm(2, 1)) / Q(1);
 		Q(2) = 1. / 4. * (dcm(0, 1) + dcm(1, 0)) / Q(1);
 		Q(3) = 1. / 4. * (dcm(2, 0) + dcm(0, 2)) / Q(1);
 		break;
 
-	case 2:
+		case 2:
 		Q(0) = 1. / 4. * (dcm(2, 0) - dcm(0, 2)) / Q(2);
 		Q(1) = 1. / 4. * (dcm(0, 1) + dcm(1, 0)) / Q(2);
 		Q(3) = 1. / 4. * (dcm(1, 2) + dcm(2, 1)) / Q(2);
 		break;
 
 
-	case 3:
+		case 3:
 		Q(0) = 1. / 4. * (dcm(0, 1) - dcm(1, 0)) / Q(3);
 		Q(1) = 1. / 4. * (dcm(2, 0) + dcm(0, 2)) / Q(3);
 		Q(2) = 1. / 4. * (dcm(1, 2) + dcm(2, 1)) / Q(3);
@@ -234,14 +234,29 @@ arma::vec RBK::dcm_to_quat(const arma::mat & dcm) {
 }
 
 std::pair<double, arma::vec > RBK::dcm_to_prv(const arma::mat & dcm) {
-	double angle = std::acos(0.5 * (arma::trace(dcm) - 1));
-	arma::vec axis = {
-		dcm(1, 2) - dcm(2, 1),
-		dcm(2, 0) - dcm(0, 2),
-		dcm(0, 1) - dcm(1, 0)
-	};
-	axis = 1. / (2 * std::sin(angle)) * axis;
 	std::pair<double, arma::vec > prv;
+	double angle;
+	arma::vec axis;
+	
+	double	cos_angle = 0.5 * (arma::trace(dcm) - 1);
+	
+	if (cos_angle - 1 < 0){
+		angle = std::acos(0.5 * (arma::trace(dcm) - 1));
+
+		axis = {
+			dcm(1, 2) - dcm(2, 1),
+			dcm(2, 0) - dcm(0, 2),
+			dcm(0, 1) - dcm(1, 0)
+		};
+		axis = 1. / (2 * std::sin(angle)) * axis;
+
+	}
+
+	else{
+		angle = 0 ;
+		axis = {1,0,0};
+	}
+
 	prv.first = angle;
 	prv.second = axis;
 	return prv;
