@@ -26,7 +26,7 @@
 # @date   July, 2017
 # @brief  CMake listing enabling compilation and installation of the RBK library
 
- 
+
 cmake_minimum_required(VERSION 2.8)
 
 if (EXISTS /home/bebe0705/.am_fortuna)
@@ -36,13 +36,6 @@ else()
 	set(IS_FORTUNA OFF)
 	message("-- This is not Fortuna")
 
-endif()
-
-
-message($DBREW)
-if (${BREW})
-
-message(FATAL_ERROR "It's working!")
 endif()
 
 
@@ -63,7 +56,13 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 add_library(${LIB_NAME} SHARED source/RigidBodyKinematics.cpp)
 target_link_libraries(${LIB_NAME} ${ARMADILLO_LIBRARIES})
 
-if (NOT ${IS_FORTUNA})
+# If ${BREW} is true, installing from homebrew formula
+if(${BREW})
+	install (TARGETS ${LIB_NAME} DESTINATION /usr/local/Cellar/RigidBodyKinematics/${BREWVERSION}/lib/)
+	install (FILES ${PROJECT_SOURCE_DIR}/include/RigidBodyKinematics.hpp DESTINATION /usr/local/Cellar/RigidBodyKinematics/${BREWVERSION}/include/RigidBodyKinematics.hpp)
+	# install (FILES ${PROJECT_SOURCE_DIR}/RigidBodyKinematicsConfig.cmake DESTINATION /usr/local/lib/cmake/RigidBodyKinematics/)
+
+elseif (NOT ${IS_FORTUNA})
 	install (TARGETS ${LIB_NAME} DESTINATION /usr/local/lib)
 	install (FILES ${PROJECT_SOURCE_DIR}/source/RigidBodyKinematics.py DESTINATION /Users/bbercovici/anaconda2/lib/python2.7/site-packages)
 	install (FILES ${PROJECT_SOURCE_DIR}/include/RigidBodyKinematics.hpp DESTINATION /usr/local/include/RigidBodyKinematics/)
