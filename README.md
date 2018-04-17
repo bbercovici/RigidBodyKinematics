@@ -2,9 +2,6 @@
 
 Library implementation of a handful of useful rigid body kinematics routines relying on Armadillo.
 
-![Build Status](https://circleci.com/gh/bbercovici/RigidBodyKinematics.png?circle-token=:circle-token)
-
-
 ## Requires
 1. Armadillo
 2. CMake
