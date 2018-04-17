@@ -1,5 +1,3 @@
-
-#include <RigidBodyKinematics.hpp>
 #include "Tests.hpp"
 #include <cassert>
 
