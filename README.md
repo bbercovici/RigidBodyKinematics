@@ -1,6 +1,6 @@
 # RigidBodyKinematics
 
-Shared library implementation of a handful of useful rigid body kinematics routines relying on Armadillo.
+Library implementation of a handful of useful rigid body kinematics routines relying on Armadillo.
 
 ## Requires
 1. Armadillo
