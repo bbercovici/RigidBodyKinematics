@@ -8,11 +8,11 @@ bool run_tests();
 int main(){
 
 
-	std::cout << "-- Running RBK tests...\n";
+	std::cout << "--- Running RBK tests...\n";
 
 	run_tests();
 
-	std::cout << "-- RBK tests successful\n";
+	std::cout << "--- RBK tests successful\n";
 
 	return 0;
 }
