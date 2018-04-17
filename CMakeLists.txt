@@ -38,8 +38,7 @@ else()
 
 endif()
 
-get_filename_component(dirName ${CMAKE_CURRENT_SOURCE_DIR} NAME)
-set(LIB_NAME ${dirName} CACHE STRING "Name of library to be created.")
+set(LIB_NAME "RigidBodyKinematics" CACHE STRING "Name of library to be created.")
 
 project(${LIB_NAME})
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/source/cmake)
