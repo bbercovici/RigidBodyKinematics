@@ -38,7 +38,6 @@ else()
 
 endif()
 
-
 set(LIB_NAME "RigidBodyKinematics" CACHE STRING "Name of library to be created.")
 
 project(${LIB_NAME})

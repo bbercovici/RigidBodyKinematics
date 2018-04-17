@@ -34,10 +34,7 @@ SOFTWARE.
 #ifndef RIGIDBODYKINEMATICS_HPP
 #define RIGIDBODYKINEMATICS_HPP
 
-
 #include <armadillo>
-
-
 
 namespace RBK {
 
@@ -81,14 +78,12 @@ Converts a set of (longitude,latitude) angles to DCM
 arma::mat longitude_latitude_to_dcm(const arma::vec & euler_angles);
 
 
-
 /**
 Converts a set of 321 Euler angles to mrp
 @param euler_angles 321 sequence of Euler angles (rad)
 @return mrp MRP set
 */
 arma::vec euler321_to_mrp(const arma::vec & euler_angles);
-
 
 /**
 Computes the time derivative of the attitude set
@@ -100,8 +95,6 @@ assuming torque free rotational dynamics and MRP as attitude coordinate
 */
 arma::vec dXattitudedt(double t, arma::vec attitude_set, arma::mat inertia) ;
 
-
-
 /**
 Computes the time derivative of the angular velocity set
 assuming torque-free rotation
@@ -111,9 +104,6 @@ assuming torque-free rotation
 @return time derivative of the input angular velocity
 */
 arma::vec domegadt(double t, arma::vec attitude_set, arma::mat & inertia) ;
-
-
-
 
 /**
 Computes the time derivative of a mrp set given

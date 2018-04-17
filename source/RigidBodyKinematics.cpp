@@ -252,7 +252,6 @@ std::pair<double, arma::vec > RBK::dcm_to_prv(const arma::mat & dcm) {
 
 arma::vec RBK::dcm_to_mrp(const arma::mat & dcm, const bool short_rot) {
 	return RBK::quat_to_mrp(RBK::dcm_to_quat(dcm), short_rot);
-
 }
 
 arma::vec RBK::dcm_to_euler321(const arma::mat & dcm) {
