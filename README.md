@@ -1,6 +1,6 @@
 # RigidBodyKinematics
 
-Shared library implementation of a handful of useful rigid body kinematics routines relying on Armadillo.
+Library implementation of a handful of useful rigid body kinematics routines relying on Armadillo.
 
 ## Requires
 1. Armadillo
@@ -37,7 +37,7 @@ target_link_libraries(${EXE_NAME} ${library_dependencies})
 3. Look at Examples/ for more insight into using RBK!
 
 ## Getting updates
-Assuming you cloned this repository and did not apply any local changes to the library, cd to the corresponding folder
+Assuming you have cloned this repository and did not apply any local changes to the library, cd to the corresponding folder
 and type
 1. `git pull`
 2. `make`
