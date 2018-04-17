@@ -21,8 +21,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-
-
 #include "RigidBodyKinematics.hpp"
 #include <math.h>
 
@@ -163,16 +161,6 @@ arma::vec RBK::shadow_mrp(const arma::vec & mrp, bool force_switch) {
 		return mrp;
 	}
 }
-
-
-
-// TO IMPLEMENT
-// std::pair<double, arma::vec > quat_to_prv(const arma::vec & Q) {
-// 	std::pair<double, arma::vec > principle_rotation_vector;
-
-
-// 	return principle_rotation_vector;
-// }
 
 arma::vec RBK::quat_to_mrp(const arma::vec & Q , const bool short_rot) {
 	arma::vec mrp = {Q(1), Q(2), Q(3)};
