@@ -75,8 +75,6 @@ Tests.cpp
 main.cpp
 )
 
-message(${EXE_NAME})
-
 set(library_dependencies
 ${ARMADILLO_LIBRARIES}
 ${RBK_LIBRARY}

@@ -1,5 +1,6 @@
 #include "Tests.hpp"
 #include <cassert>
+#include <iostream>
 
 bool run_tests();
 
