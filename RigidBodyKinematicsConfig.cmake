@@ -34,7 +34,6 @@ if (${IS_FORTUNA})
 	set(RBK_LIBRARY /home/bebe0705/libs/local/lib/libRigidBodyKinematics.so)
 else()
 	set(RBK_INCLUDE_DIR /usr/local/include/RigidBodyKinematics/)
-
 	if (APPLE)
 		set(RBK_LIBRARY /usr/local/lib/libRigidBodyKinematics.dylib)
 	elseif(UNIX AND NOT APPLE)
