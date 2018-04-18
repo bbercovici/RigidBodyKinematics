@@ -20,7 +20,6 @@
 # SOFTWARE.
 #
 
-
 # @file   CMakeLists.txt
 # @Author Benjamin Bercovici (bebe0705@colorado.edu)
 # @date   July, 2017

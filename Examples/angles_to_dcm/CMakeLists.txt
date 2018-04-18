@@ -31,6 +31,8 @@ if (EXISTS /home/bebe0705/.am_fortuna)
 	set(RBK_LOC "/home/bebe0705/libs/local/lib/cmake/RigidBodyKinematics")
 else()
 	set(IS_FORTUNA OFF)
+	set(RBK_LOC "/usr/local/Cellar/rbk/*")
+	
 endif()
 
 get_filename_component(dirName ${CMAKE_CURRENT_SOURCE_DIR} NAME)
