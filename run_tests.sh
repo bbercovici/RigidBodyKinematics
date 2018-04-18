@@ -4,7 +4,7 @@ if cd Tests; then
 		echo "Building RigidBodyKinematics tests..."
 		cmake ..
 		ls
-		cp Makefile /Users/bbercovici/Desktop/
+		cat Makefile
 		# make
 		# ./Tests
 	fi
