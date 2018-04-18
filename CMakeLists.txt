@@ -55,12 +55,10 @@ add_library(${LIB_NAME} SHARED source/RigidBodyKinematics.cpp)
 target_link_libraries(${LIB_NAME} ${ARMADILLO_LIBRARIES})
 
 # If ${BREW} is true, installing from homebrew formula
-if( NOT ${BREW})
-
+if(NOT BREW)
 	if (NOT ${IS_FORTUNA})
 		install (TARGETS ${LIB_NAME} DESTINATION /usr/local/lib)
-		install (FILES ${PROJECT_SOURCE_DIR}/source/RigidBodyKinematics.py DESTINATION /Users/bbercovici/anaconda2/lib/python2.7/site-packages)
-		install (FILES ${PROJECT_SOURCE_DIR}/include/RigidBodyKinematics.hpp DESTINATION /usr/local/include/RigidBodyKinematics/)
+		install (FILES ${PROJECT_SOURCE_DIR}/include/RigidBodyKinematics.hpp DESTINATION /usr/local/include/)
 		install (FILES ${PROJECT_SOURCE_DIR}/RigidBodyKinematicsConfig.cmake DESTINATION /usr/local/lib/cmake/RigidBodyKinematics/)
 	else()
 		install (TARGETS ${LIB_NAME} DESTINATION /home/bebe0705/libs/local/lib)

@@ -288,12 +288,9 @@ arma::vec dcm_to_quat(const arma::mat & dcm) ;
 /**
 Converts a dcm to the principal rotation vector
 @param dcm DCM
-@return prv Principal rotation vector, stored in the form of
-	a std::pair<double,arma::vec> with
-	- first : short rotation angle (rad)
-	- second : rotation axis (unit vector)
+@return prv Principal rotation vector
 */
-std::pair<double, arma::vec > dcm_to_prv(const arma::mat & dcm) ;
+arma::vec dcm_to_prv(const arma::mat & dcm) ;
 
 /**
 Converts a PRV to the corresponding DCM

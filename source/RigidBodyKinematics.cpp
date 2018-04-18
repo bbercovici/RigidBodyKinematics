@@ -221,8 +221,7 @@ arma::vec RBK::dcm_to_quat(const arma::mat & dcm) {
 
 }
 
-std::pair<double, arma::vec > RBK::dcm_to_prv(const arma::mat & dcm) {
-	std::pair<double, arma::vec > prv;
+arma::vec RBK::dcm_to_prv(const arma::mat & dcm) {
 	double angle;
 	arma::vec axis;
 	
@@ -245,9 +244,7 @@ std::pair<double, arma::vec > RBK::dcm_to_prv(const arma::mat & dcm) {
 		axis = {1,0,0};
 	}
 
-	prv.first = angle;
-	prv.second = axis;
-	return prv;
+	return angle * axis;
 }
 
 arma::vec RBK::dcm_to_mrp(const arma::mat & dcm, const bool short_rot) {
