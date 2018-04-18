@@ -20,7 +20,6 @@
 # SOFTWARE.
 #
 
-
 # @file   CMakeLists.txt
 # @Author Benjamin Bercovici (bebe0705@colorado.edu)
 # @date   July, 2017
@@ -28,15 +27,6 @@
 
 
 cmake_minimum_required(VERSION 2.8)
-
-if (EXISTS /home/bebe0705/.am_fortuna)
-	set(IS_FORTUNA ON)
-	message("-- This is Fortuna")
-else()
-	set(IS_FORTUNA OFF)
-	message("-- This is not Fortuna")
-
-endif()
 
 set(LIB_NAME "RigidBodyKinematics" CACHE STRING "Name of library to be created.")
 
@@ -56,14 +46,8 @@ target_link_libraries(${LIB_NAME} ${ARMADILLO_LIBRARIES})
 
 # If ${BREW} is true, installing from homebrew formula
 if(NOT BREW)
-	if (NOT ${IS_FORTUNA})
-		install (TARGETS ${LIB_NAME} DESTINATION /usr/local/lib)
-		install (FILES ${PROJECT_SOURCE_DIR}/source/RigidBodyKinematics.py DESTINATION /Users/bbercovici/anaconda2/lib/python2.7/site-packages)
-		install (FILES ${PROJECT_SOURCE_DIR}/include/RigidBodyKinematics.hpp DESTINATION /usr/local/include/)
-		install (FILES ${PROJECT_SOURCE_DIR}/RigidBodyKinematicsConfig.cmake DESTINATION /usr/local/lib/cmake/RigidBodyKinematics/)
-	else()
-		install (TARGETS ${LIB_NAME} DESTINATION /home/bebe0705/libs/local/lib)
-		install (FILES ${PROJECT_SOURCE_DIR}/include/RigidBodyKinematics.hpp DESTINATION /home/bebe0705/libs/local/include/RigidBodyKinematics/)
-		install (FILES ${PROJECT_SOURCE_DIR}/RigidBodyKinematicsConfig.cmake DESTINATION /home/bebe0705/libs/local/lib/cmake/RigidBodyKinematics/)
-	endif()
+	install (FILES ${PROJECT_SOURCE_DIR}/source/RigidBodyKinematics.py DESTINATION /Users/bbercovici/anaconda2/lib/python2.7/site-packages)
+	install (TARGETS ${LIB_NAME} DESTINATION /usr/local/lib)
+	install (FILES ${PROJECT_SOURCE_DIR}/include/RigidBodyKinematics.hpp DESTINATION /usr/local/include/)
+	install (DIRECTORY ${PROJECT_SOURCE_DIR}/${LIB_NAME} DESTINATION /usr/local/share)
 endif()
