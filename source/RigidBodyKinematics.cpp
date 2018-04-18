@@ -21,8 +21,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-
-
 #include "RigidBodyKinematics.hpp"
 #include <math.h>
 
@@ -164,16 +162,6 @@ arma::vec RBK::shadow_mrp(const arma::vec & mrp, bool force_switch) {
 	}
 }
 
-
-
-// TO IMPLEMENT
-// std::pair<double, arma::vec > quat_to_prv(const arma::vec & Q) {
-// 	std::pair<double, arma::vec > principle_rotation_vector;
-
-
-// 	return principle_rotation_vector;
-// }
-
 arma::vec RBK::quat_to_mrp(const arma::vec & Q , const bool short_rot) {
 	arma::vec mrp = {Q(1), Q(2), Q(3)};
 	mrp = mrp / ( 1 + Q(0));
@@ -233,8 +221,7 @@ arma::vec RBK::dcm_to_quat(const arma::mat & dcm) {
 
 }
 
-std::pair<double, arma::vec > RBK::dcm_to_prv(const arma::mat & dcm) {
-	std::pair<double, arma::vec > prv;
+arma::vec RBK::dcm_to_prv(const arma::mat & dcm) {
 	double angle;
 	arma::vec axis;
 	
@@ -257,14 +244,11 @@ std::pair<double, arma::vec > RBK::dcm_to_prv(const arma::mat & dcm) {
 		axis = {1,0,0};
 	}
 
-	prv.first = angle;
-	prv.second = axis;
-	return prv;
+	return angle * axis;
 }
 
 arma::vec RBK::dcm_to_mrp(const arma::mat & dcm, const bool short_rot) {
 	return RBK::quat_to_mrp(RBK::dcm_to_quat(dcm), short_rot);
-
 }
 
 arma::vec RBK::dcm_to_euler321(const arma::mat & dcm) {
