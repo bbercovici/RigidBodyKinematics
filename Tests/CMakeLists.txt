@@ -31,14 +31,9 @@
 ################################################################################
 
 
-if (EXISTS /home/bebe0705/.am_fortuna)
-	set(IS_FORTUNA ON)
-	message("-- This is Fortuna")
-	set(RBK_LOC "/home/bebe0705/libs/local/lib/cmake/RigidBodyKinematics") 
-else()
-	set(IS_FORTUNA OFF)
-	message("-- This is not Fortuna")
-endif()
+
+set(RBK_LOC "/home/bebe0705/libs/local/lib/cmake/RigidBodyKinematics") 
+
 
 # Building procedure
 get_filename_component(dirName ${CMAKE_CURRENT_SOURCE_DIR} NAME)
@@ -64,7 +59,7 @@ find_package(Armadillo REQUIRED)
 include_directories(${ARMADILLO_INCLUDE_DIRS})
 
 # Find RBK 
-find_package(RigidBodyKinematics REQUIRED)
+find_package(RigidBodyKinematics REQUIRED ${RBK_LOC})
 include_directories(${RBK_INCLUDE_DIR})
 
 # Add source files in root directory
