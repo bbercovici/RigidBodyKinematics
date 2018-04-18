@@ -38,7 +38,6 @@ if (EXISTS /home/bebe0705/.am_fortuna)
 else()
 	set(IS_FORTUNA OFF)
 	message("-- This is not Fortuna")
-	set(RBK_LOC "/usr/local/Cellar/rbk/*")
 endif()
 
 # Building procedure
@@ -65,7 +64,7 @@ find_package(Armadillo REQUIRED)
 include_directories(${ARMADILLO_INCLUDE_DIRS})
 
 # Find RBK 
-find_package(RigidBodyKinematics REQUIRED PATHS ${RBK_LOC})
+find_package(RigidBodyKinematics REQUIRED)
 include_directories(${RBK_INCLUDE_DIR})
 
 # Add source files in root directory
