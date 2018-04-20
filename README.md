@@ -10,9 +10,9 @@ Library implementation of a handful of useful Rigid Body Kinematics (RBK) routin
 
 ### Mac users
 
-   brew tap bbercovici/self
-   brew update
-   brew install rbk
+    brew tap bbercovici/self
+    brew update
+    brew install rbk
 
 ### Linux & Mac users
 
