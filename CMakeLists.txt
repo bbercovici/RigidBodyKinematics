@@ -30,6 +30,11 @@ cmake_minimum_required(VERSION 2.8)
 
 set(LIB_NAME "RigidBodyKinematics" CACHE STRING "Name of library to be created.")
 
+if (${USE_GCC})
+	include(cmake/FindOmpGcc.cmake)
+endif()
+
+
 project(${LIB_NAME})
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/source/cmake)
 
