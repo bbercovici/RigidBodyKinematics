@@ -23,6 +23,8 @@
 #include "Tests.hpp"
 #include <armadillo>
 #include <RigidBodyKinematics.hpp>
+#include <cassert>
+
 void Tests::test_euler321_to_mrp(){
 
 
