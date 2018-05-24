@@ -25,7 +25,7 @@
 # If running on a MAC, this will look for an OMP compliant compiler installed through Homebrew
 # in /usr/local/Cellar
 if(APPLE)
-
+	message("Running on Mac. Looking for GCC in Homebrew's Cellar...")
 	# Checking if a built-from-source GCC lives in Homebrew's Cellar
 	if(EXISTS /usr/local/Cellar/gcc)
 

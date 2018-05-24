@@ -24,15 +24,16 @@
 # @Author Benjamin Bercovici (bebe0705@colorado.edu)
 # @date   July, 2017
 # @brief  CMake listing enabling compilation and installation of the RBK library
-
-
 cmake_minimum_required(VERSION 2.8)
 
-set(LIB_NAME "RigidBodyKinematics" CACHE STRING "Name of library to be created.")
 
 if (${USE_GCC})
 	include(cmake/FindOmpGcc.cmake)
 endif()
+
+
+set(LIB_NAME "RigidBodyKinematics" CACHE STRING "Name of library to be created.")
+
 
 
 project(${LIB_NAME})
