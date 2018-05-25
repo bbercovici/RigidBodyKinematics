@@ -21,11 +21,10 @@
 # SOFTWARE.
 #
 
-
 # If running on a MAC, this will look for an OMP compliant compiler installed through Homebrew
 # in /usr/local/Cellar
 if(APPLE)
-	message("Running on Mac. Looking for GCC in Homebrew's Cellar...")
+
 	# Checking if a built-from-source GCC lives in Homebrew's Cellar
 	if(EXISTS /usr/local/Cellar/gcc)
 
@@ -38,6 +37,8 @@ if(APPLE)
 		# If len == 0, nothing to do here
 		if(${len} EQUAL 0)
 			message("No OMP-compliant compiler was found on this Mac.")
+			set(CMAKE_C_COMPILER "/usr/bin/gcc" CACHE STRING "C Compiler" FORCE)
+			set(CMAKE_CXX_COMPILER "/usr/bin/g++" CACHE STRING "C++ Compiler" FORCE)
 		else()
 			# Looping over each directory to extract major/intermediate versions
 			foreach(dir ${compiler_dirs})
@@ -91,11 +92,12 @@ if(APPLE)
 		endif()
 	else()
 		message("No OMP-compliant compiler was found on this Mac.")
+		set(CMAKE_C_COMPILER "/usr/bin/gcc" CACHE STRING "C Compiler" FORCE)
+		set(CMAKE_CXX_COMPILER "/usr/bin/g++" CACHE STRING "C++ Compiler" FORCE)
 	endif()
 
 else() 
 	# Running on Linux. Will switch back to compiler in /usr/local/bin
-	message("Switching to /usr/local/gcc ")
-	set(CMAKE_C_COMPILER "/usr/local/bin/gcc" CACHE STRING "C Compiler" FORCE)
-	set(CMAKE_CXX_COMPILER "/usr/local/bin/g++" CACHE STRING "C++ Compiler" FORCE)
+	set(CMAKE_C_COMPILER "/usr/bin/gcc" CACHE STRING "C Compiler" FORCE)
+	set(CMAKE_CXX_COMPILER "/usr/bin/g++" CACHE STRING "C++ Compiler" FORCE)
 endif()
