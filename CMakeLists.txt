@@ -28,11 +28,16 @@
 
 cmake_minimum_required(VERSION 2.8)
 
-set(LIB_NAME "RigidBodyKinematics" CACHE STRING "Name of library to be created.")
 
 if (${USE_GCC})
 	include(cmake/FindOmpGcc.cmake)
+else()
+	set(CMAKE_C_COMPILER /usr/bin/gcc CACHE STRING "C Compiler" FORCE)
+	set(CMAKE_CXX_COMPILER /usr/bin/g++ CACHE STRING "C++ Compiler" FORCE)
 endif()
+
+set(LIB_NAME "RigidBodyKinematics" CACHE STRING "Name of library to be created.")
+
 
 
 project(${LIB_NAME})
