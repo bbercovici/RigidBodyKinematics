@@ -1,5 +1,4 @@
 #include "Tests.hpp"
-#include <cassert>
 #include <iostream>
 
 bool run_tests();
@@ -50,6 +49,8 @@ bool run_tests(){
 	Tests::test_prv_to_dcm();
 	Tests::test_prv_to_mrp();
 	Tests::test_Bmat();
+	Tests::test_partial_mrp_dot_partial_mrp();
+	
 
 	return true;
 }

@@ -23,6 +23,8 @@
 #include "Tests.hpp"
 #include <armadillo>
 #include <RigidBodyKinematics.hpp>
+#include <cassert>
+
 void Tests::test_euler321_to_mrp(){
 
 
@@ -193,7 +195,7 @@ void Tests::test_prv_to_dcm(){
 	arma::vec prv_BN  = e * angle;
 
 	arma::mat dcm = RBK::prv_to_dcm(prv_BN);
-	assert(std::abs(dcm(0,0) - 0.892539)/892539 < 1e-6);
+	assert(std::abs(dcm(0,0) - 0.892539)/0.892539 < 1e-6);
 
 }
 
@@ -209,3 +211,33 @@ void Tests::test_prv_to_mrp(){
 }
 void Tests::test_Bmat(){
 }
+
+void Tests::test_partial_mrp_dot_partial_mrp(){
+
+	arma::vec::fixed<3> mrp = {0.1,0.2,0.3};
+	arma::vec::fixed<3> omega = {-0.1,0.1,-0.04};
+	arma::vec::fixed<3> dmrp = 1e-4 * mrp;
+	arma::vec::fixed<6> attitude_set_0 = {mrp(0),mrp(1),mrp(2),omega(0),omega(1),omega(2)};
+	arma::vec::fixed<6> attitude_set_1 = attitude_set_0;
+	attitude_set_1.subvec(0,2) += dmrp;
+
+	arma::vec::fixed<3> mrp_dot_0 = RBK::dmrpdt(0,attitude_set_0);
+	arma::vec::fixed<3> mrp_dot_1 = RBK::dmrpdt(0,attitude_set_1);
+
+	arma::mat::fixed<3,3> dmrpdot_dmrp = RBK::partial_mrp_dot_partial_mrp(attitude_set_0);
+
+	arma::vec::fixed<3> dmrp_dot_true = mrp_dot_1 - mrp_dot_0;
+	arma::vec::fixed<3> dmrp_dot_linear = dmrpdot_dmrp * dmrp;
+
+	assert(arma::norm(dmrp_dot_true - dmrp_dot_linear)/arma::norm(dmrp_dot_linear) * 100 < 0.01);
+
+
+
+
+
+
+}
+
+
+
+
