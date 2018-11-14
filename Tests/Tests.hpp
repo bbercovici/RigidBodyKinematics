@@ -54,4 +54,5 @@ namespace Tests{
 	void test_prv_to_dcm();
 	void test_prv_to_mrp();
 	void test_Bmat();
+	void test_partial_mrp_dot_partial_mrp();
 }
