@@ -119,7 +119,7 @@ arma::vec::fixed<3> RBK::domegadt(double t,
 arma::vec::fixed<6> RBK::dXattitudedt(double t, const arma::vec::fixed<6> & attitude_set, 
 	const arma::mat::fixed<3,3> & inertia,const arma::vec::fixed<3> & L) {
 
-	arma::vec::fixed<6> dxdt(6);
+	arma::vec::fixed<6> dxdt;
 	dxdt.subvec(0, 2) = RBK::dmrpdt(t, attitude_set);
 	dxdt.subvec(3, 5) = RBK::domegadt(t, attitude_set, inertia,L);
 
